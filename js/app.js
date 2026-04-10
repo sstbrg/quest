@@ -53,9 +53,9 @@ const TOTAL_STAGES = 7;
 const ANSWERS = {
   1: ['pat', 'patricia', 'patrice'],
   2: ['lilac', 'lilacs', 'לילך', 'לילכים'],
-  3: ['germany', 'deutschland', 'גרמניה'],
+  3: ['karl', 'carl'],
   4: ['fox', 'the fox', 'שועל', 'השועל'],
-  5: ['b-612', 'b612', 'b 612', 'asteroid b-612'],
+  5: ['rose', 'the rose', 'a rose', 'ורד', 'הוורד'],
   6: ['tiberias', 'tverya', 'tveria', 'tiberius', 'טבריה', 'טבריא'],
   7: ['kinneret', 'kineret', 'כינרת', 'כנרת', 'sea of galilee', 'galilee']
 };
@@ -63,9 +63,9 @@ const ANSWERS = {
 const DISPLAY_ANSWERS = {
   1: 'Pat',
   2: 'Lilacs',
-  3: 'Germany',
+  3: 'Karl',
   4: 'Fox',
-  5: 'B-612',
+  5: 'Rose',
   6: 'Tiberias',
   7: 'Kinneret'
 };
@@ -73,6 +73,7 @@ const DISPLAY_ANSWERS = {
 let attemptCounts = {};
 let hintShown = {};
 let hintTimers = {};
+let revealTimers = {};
 for (let i = 1; i <= TOTAL_STAGES; i++) {
   attemptCounts[i] = 0;
   hintShown[i] = false;
@@ -119,9 +120,21 @@ function transitionTo(stageId) {
 // Show hint button after 20 seconds of being on a stage
 function startHintTimer(stage) {
   if (hintTimers[stage]) clearTimeout(hintTimers[stage]);
+  if (revealTimers[stage]) clearTimeout(revealTimers[stage]);
   hintTimers[stage] = setTimeout(() => {
     const hintBtn = document.getElementById('hintBtn' + stage);
     if (hintBtn) hintBtn.classList.remove('hidden');
+    // Start reveal timer — show answer button 20s after hint button appears
+    startRevealTimer(stage);
+  }, 20000);
+}
+
+// Show reveal button after a delay (works regardless of whether hint was clicked)
+function startRevealTimer(stage) {
+  if (revealTimers[stage]) clearTimeout(revealTimers[stage]);
+  revealTimers[stage] = setTimeout(() => {
+    const revealBtn = document.getElementById('revealBtn' + stage);
+    if (revealBtn) revealBtn.classList.remove('hidden');
   }, 20000);
 }
 
@@ -132,8 +145,9 @@ function showHint(stage) {
   if (hintBtn) hintBtn.classList.add('hidden');
   hintShown[stage] = true;
 
-  // Show the "reveal answer" button after 8 seconds
-  setTimeout(() => {
+  // Show the "reveal answer" button after 8 seconds (faster path when hint is clicked)
+  if (revealTimers[stage]) clearTimeout(revealTimers[stage]);
+  revealTimers[stage] = setTimeout(() => {
     const revealBtn = document.getElementById('revealBtn' + stage);
     if (revealBtn) revealBtn.classList.remove('hidden');
   }, 8000);
@@ -181,6 +195,7 @@ function checkAnswer(stage) {
     const revealBtn = document.getElementById('revealBtn' + stage);
     if (revealBtn) revealBtn.classList.add('hidden');
     if (hintTimers[stage]) clearTimeout(hintTimers[stage]);
+    if (revealTimers[stage]) clearTimeout(revealTimers[stage]);
 
     setTimeout(() => {
       transitionTo('stage' + (stage + 1));
@@ -199,6 +214,15 @@ function checkAnswer(stage) {
       if (hintTimers[stage]) clearTimeout(hintTimers[stage]);
       const hintBtn = document.getElementById('hintBtn' + stage);
       if (hintBtn) hintBtn.classList.remove('hidden');
+      // Start reveal timer if not already running
+      if (!revealTimers[stage]) startRevealTimer(stage);
+    }
+
+    // Show reveal button directly after 3 wrong attempts
+    if (attemptCounts[stage] >= 3) {
+      if (revealTimers[stage]) clearTimeout(revealTimers[stage]);
+      const revealBtn = document.getElementById('revealBtn' + stage);
+      if (revealBtn) revealBtn.classList.remove('hidden');
     }
 
     input.value = '';
