@@ -18,20 +18,23 @@
     <div class="stage-inner">
       <div class="ornament">&#10053;</div>
       <h1 class="title-main">A Quest Awaits You</h1>
-      <p class="subtitle">A journey of love, history &amp; mystery</p>
+      <p class="subtitle">A journey of love, literature &amp; history</p>
       <div class="divider"></div>
       <p class="intro-text">
         Good morning, my love.<br><br>
-        Today is no ordinary day. I've prepared something special for you &mdash;
-        a quest woven from the pages of a great novel and the ancient stones of a legendary city.<br><br>
-        Three comrades once knew that <em>the greatest adventure is the one taken for love.</em><br><br>
+        Today is no ordinary day. I've prepared something special &mdash;
+        a quest that will test your knowledge of <strong>literature and history</strong>,
+        woven from the pages of great books and the ancient stones of a legendary city.<br><br>
+        From Remarque's <em>Three Comrades</em> to Saint-Exup&eacute;ry's <em>Little Prince</em>,
+        and from the wisdom of the ancients to the shores of a sacred sea &mdash;
+        each answer will bring you one step closer to a surprise.<br><br>
         Are you ready to begin?
       </p>
       <button class="btn-quest" onclick="startQuest()">Begin the Quest</button>
     </div>
   </section>
 
-  <!-- STAGE 1: Three Comrades -->
+  <!-- STAGE 1: Three Comrades — Pat -->
   <section id="stage1" class="stage">
     <div class="stage-inner">
       <div class="stage-number">I</div>
@@ -58,7 +61,7 @@
         <div id="error1" class="error-msg hidden">Not quite... think about the name Robert whispered to her</div>
         <button class="btn-quest" onclick="checkAnswer(1)">Unlock Next Clue</button>
         <br>
-        <button id="hintBtn1" class="btn-hint" onclick="showHint(1)">Need a hint?</button>
+        <button id="hintBtn1" class="btn-hint hidden" onclick="showHint(1)">Need a hint?</button>
         <div id="hint1" class="hint hidden">
           <span class="hint-icon">&#9733;</span> Her full name is Patricia, but Robert always called her by a shorter, sweeter name...
         </div>
@@ -67,15 +70,161 @@
     </div>
   </section>
 
-  <!-- STAGE 2: The Ancient City -->
+  <!-- STAGE 2: Three Comrades — Roses -->
   <section id="stage2" class="stage">
     <div class="stage-inner">
       <div class="stage-number">II</div>
+      <h2 class="stage-title">The Language of Love</h2>
+      <div class="divider"></div>
+      <div class="book-quote">
+        <span class="quote-mark">&ldquo;</span>
+        I stood at her door, my heart pounding, holding them in my hands
+        like a prayer &mdash; the only words I knew how to say without speaking.
+        <span class="quote-mark">&rdquo;</span>
+        <div class="quote-author">&mdash; Erich Maria Remarque, <em>Three Comrades</em></div>
+      </div>
+      <p class="clue-text">
+        Robert was not a man of grand speeches. He was quiet, sometimes awkward,
+        often unsure of the right thing to say.<br><br>
+        But he knew the <strong>oldest language of love</strong>.<br><br>
+        Time and again, he appeared at Pat's door carrying
+        the most timeless symbol of romance &mdash; crimson, fragrant, and eternal.
+        In a world falling apart, these delicate blooms were his way of saying:
+        <em>"You are the most beautiful thing in my life."</em><br><br>
+        <em>What flower did Robert bring to Pat?</em>
+      </p>
+      <div class="answer-box">
+        <input type="text" id="answer2" class="answer-input" placeholder="Enter the flower..." autocomplete="off">
+        <div id="error2" class="error-msg hidden">Not quite... think of the most classic symbol of romance, red and fragrant...</div>
+        <button class="btn-quest" onclick="checkAnswer(2)">Unlock Next Clue</button>
+        <br>
+        <button id="hintBtn2" class="btn-hint hidden" onclick="showHint(2)">Need a hint?</button>
+        <div id="hint2" class="hint hidden">
+          <span class="hint-icon">&#9733;</span> Crimson petals, thorny stems, the universal symbol of passion...
+        </div>
+        <button id="revealBtn2" class="btn-reveal hidden" onclick="revealAnswer(2)">I'm really stuck &mdash; show me the answer</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE 3: Three Comrades — Germany -->
+  <section id="stage3" class="stage">
+    <div class="stage-inner">
+      <div class="stage-number">III</div>
+      <h2 class="stage-title">The Land of Their Love</h2>
+      <div class="divider"></div>
+      <div class="book-quote">
+        <span class="quote-mark">&ldquo;</span>
+        We were in love, and the world around us was in ruins &mdash;
+        but somehow, between us, we built something whole.
+        <span class="quote-mark">&rdquo;</span>
+        <div class="quote-author">&mdash; Erich Maria Remarque, <em>Three Comrades</em></div>
+      </div>
+      <p class="clue-text">
+        Robert and Pat's love story unfolds against the backdrop of a nation caught between
+        the scars of one great war and the shadow of another.<br><br>
+        It is the late <strong>1920s</strong>. The streets buzz with jazz and desperation.
+        Inflation has ravaged the economy. The comrades drink together to forget,
+        and love fiercely because tomorrow is never promised.<br><br>
+        Remarque himself was born in this country, and wrote from the depths of
+        his own experience &mdash; a soldier who became a poet of the human heart.<br><br>
+        <em>In which European country does the story of the Three Comrades take place?</em>
+      </p>
+      <div class="answer-box">
+        <input type="text" id="answer3" class="answer-input" placeholder="Enter the country..." autocomplete="off">
+        <div id="error3" class="error-msg hidden">Not quite... Remarque was born in Osnabr&uuml;ck, in the heart of Europe's largest economy.</div>
+        <button class="btn-quest" onclick="checkAnswer(3)">Unlock Next Clue</button>
+        <br>
+        <button id="hintBtn3" class="btn-hint hidden" onclick="showHint(3)">Need a hint?</button>
+        <div id="hint3" class="hint hidden">
+          <span class="hint-icon">&#9733;</span> Remarque wrote in his mother tongue &mdash; the language of Goethe, Beethoven, and Berlin...
+        </div>
+        <button id="revealBtn3" class="btn-reveal hidden" onclick="revealAnswer(3)">I'm really stuck &mdash; show me the answer</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE 4: The Little Prince — The Fox -->
+  <section id="stage4" class="stage">
+    <div class="stage-inner">
+      <div class="stage-number">IV</div>
+      <h2 class="stage-title">The Art of Taming</h2>
+      <div class="divider"></div>
+      <div class="book-quote">
+        <span class="quote-mark">&ldquo;</span>
+        You become responsible, forever, for what you have tamed.
+        <span class="quote-mark">&rdquo;</span>
+        <div class="quote-author">&mdash; Antoine de Saint-Exup&eacute;ry, <em>The Little Prince</em></div>
+      </div>
+      <p class="clue-text">
+        Now we turn the page to another story of love &mdash; told through the eyes of a child from the stars.<br><br>
+        In his journey across the planets, the Little Prince meets a wise creature
+        who teaches him the most important lesson of all:
+        <em>"To tame means to create bonds."</em><br><br>
+        This creature explains that before they are tamed, they are just one among thousands.
+        But once tamed, they become <strong>unique in all the world</strong> to each other.<br><br>
+        It is this creature who whispers the secret: <em>"What is essential is invisible to the eye."</em><br><br>
+        <em>What animal taught the Little Prince about love and belonging?</em>
+      </p>
+      <div class="answer-box">
+        <input type="text" id="answer4" class="answer-input" placeholder="Enter the animal..." autocomplete="off">
+        <div id="error4" class="error-msg hidden">Not quite... this clever, bushy-tailed creature is known for its cunning...</div>
+        <button class="btn-quest" onclick="checkAnswer(4)">Unlock Next Clue</button>
+        <br>
+        <button id="hintBtn4" class="btn-hint hidden" onclick="showHint(4)">Need a hint?</button>
+        <div id="hint4" class="hint hidden">
+          <span class="hint-icon">&#9733;</span> A small, clever animal often seen in fables &mdash; it rhymes with "box"...
+        </div>
+        <button id="revealBtn4" class="btn-reveal hidden" onclick="revealAnswer(4)">I'm really stuck &mdash; show me the answer</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE 5: The Little Prince — Asteroid B-612 -->
+  <section id="stage5" class="stage">
+    <div class="stage-inner">
+      <div class="stage-number">V</div>
+      <h2 class="stage-title">A Home Among the Stars</h2>
+      <div class="divider"></div>
+      <div class="book-quote">
+        <span class="quote-mark">&ldquo;</span>
+        If you love a flower that lives on a star, then it is sweet to look at the sky at night.
+        All the stars are abloom with flowers.
+        <span class="quote-mark">&rdquo;</span>
+        <div class="quote-author">&mdash; Antoine de Saint-Exup&eacute;ry, <em>The Little Prince</em></div>
+      </div>
+      <p class="clue-text">
+        The Little Prince came from a tiny world no bigger than a house,
+        where he could watch <strong>forty-four sunsets in a single day</strong> just by moving his chair.<br><br>
+        On this little world grew three volcanoes and one very special, very vain rose
+        &mdash; the rose he loved, the rose he left, and the rose he crossed the universe to return to.<br><br>
+        Astronomers gave his home a name made of a letter and three numbers &mdash;
+        a name as small and precise as the planet itself.<br><br>
+        <em>What is the name of the Little Prince's asteroid?</em>
+      </p>
+      <div class="answer-box">
+        <input type="text" id="answer5" class="answer-input" placeholder="Enter the asteroid name..." autocomplete="off">
+        <div id="error5" class="error-msg hidden">Not quite... it starts with a letter followed by a dash and three digits.</div>
+        <button class="btn-quest" onclick="checkAnswer(5)">Unlock Next Clue</button>
+        <br>
+        <button id="hintBtn5" class="btn-hint hidden" onclick="showHint(5)">Need a hint?</button>
+        <div id="hint5" class="hint hidden">
+          <span class="hint-icon">&#9733;</span> The letter is B, then a dash, then 6-1-2...
+        </div>
+        <button id="revealBtn5" class="btn-reveal hidden" onclick="revealAnswer(5)">I'm really stuck &mdash; show me the answer</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE 6: Tiberias -->
+  <section id="stage6" class="stage">
+    <div class="stage-inner">
+      <div class="stage-number">VI</div>
       <h2 class="stage-title">The Emperor's City</h2>
       <div class="divider"></div>
       <p class="clue-text">
-        Like the love between Robert and Pat &mdash; timeless and enduring &mdash;
-        there exists a city that has witnessed two thousand years of history unfold along the shores of a great water.<br><br>
+        Now our quest leaves the world of books and enters the world of <strong>ancient history</strong>.<br><br>
+        There exists a city that has witnessed two thousand years of history unfold along the shores of a great water.<br><br>
         This city was founded around <strong>20 CE</strong> by <strong>Herod Antipas</strong>,
         who named it in honor of the Roman Emperor who ruled the known world.<br><br>
         It became one of the <strong>four holy cities</strong> of the Jewish people.
@@ -85,23 +234,23 @@
         <em>What is this ancient and holy city?</em>
       </p>
       <div class="answer-box">
-        <input type="text" id="answer2" class="answer-input" placeholder="Name the city..." autocomplete="off">
-        <div id="error2" class="error-msg hidden">Not quite... the Emperor's name was Tiberius. The city bears his name.</div>
-        <button class="btn-quest" onclick="checkAnswer(2)">Unlock Next Clue</button>
+        <input type="text" id="answer6" class="answer-input" placeholder="Name the city..." autocomplete="off">
+        <div id="error6" class="error-msg hidden">Not quite... the Emperor's name was Tiberius. The city bears his name.</div>
+        <button class="btn-quest" onclick="checkAnswer(6)">Unlock Next Clue</button>
         <br>
-        <button id="hintBtn2" class="btn-hint" onclick="showHint(2)">Need a hint?</button>
-        <div id="hint2" class="hint hidden">
+        <button id="hintBtn6" class="btn-hint hidden" onclick="showHint(6)">Need a hint?</button>
+        <div id="hint6" class="hint hidden">
           <span class="hint-icon">&#9733;</span> The Emperor's name was Tiberius... and the city still carries his legacy.
         </div>
-        <button id="revealBtn2" class="btn-reveal hidden" onclick="revealAnswer(2)">I'm really stuck &mdash; show me the answer</button>
+        <button id="revealBtn6" class="btn-reveal hidden" onclick="revealAnswer(6)">I'm really stuck &mdash; show me the answer</button>
       </div>
     </div>
   </section>
 
-  <!-- STAGE 3: The Sea -->
-  <section id="stage3" class="stage">
+  <!-- STAGE 7: Kinneret -->
+  <section id="stage7" class="stage">
     <div class="stage-inner">
-      <div class="stage-number">III</div>
+      <div class="stage-number">VII</div>
       <h2 class="stage-title">The Harp-Shaped Sea</h2>
       <div class="divider"></div>
       <p class="clue-text">
@@ -116,28 +265,29 @@
         <em>What is the Hebrew name of this legendary sea?</em>
       </p>
       <div class="answer-box">
-        <input type="text" id="answer3" class="answer-input" placeholder="Name the sea..." autocomplete="off">
-        <div id="error3" class="error-msg hidden">Almost there... think about "kinnor" (harp) and add the place suffix...</div>
-        <button class="btn-quest" onclick="checkAnswer(3)">Unlock the Final Secret</button>
+        <input type="text" id="answer7" class="answer-input" placeholder="Name the sea..." autocomplete="off">
+        <div id="error7" class="error-msg hidden">Almost there... think about "kinnor" (harp) and add the place suffix...</div>
+        <button class="btn-quest" onclick="checkAnswer(7)">Unlock the Final Secret</button>
         <br>
-        <button id="hintBtn3" class="btn-hint" onclick="showHint(3)">Need a hint?</button>
-        <div id="hint3" class="hint hidden">
+        <button id="hintBtn7" class="btn-hint hidden" onclick="showHint(7)">Need a hint?</button>
+        <div id="hint7" class="hint hidden">
           <span class="hint-icon">&#9733;</span> Named after the Hebrew word for "harp" &mdash; <em>kinnor</em>...
         </div>
-        <button id="revealBtn3" class="btn-reveal hidden" onclick="revealAnswer(3)">I'm really stuck &mdash; show me the answer</button>
+        <button id="revealBtn7" class="btn-reveal hidden" onclick="revealAnswer(7)">I'm really stuck &mdash; show me the answer</button>
       </div>
     </div>
   </section>
 
-  <!-- STAGE 4: The Reveal -->
-  <section id="stage4" class="stage">
+  <!-- STAGE 8: The Reveal -->
+  <section id="stage8" class="stage">
     <div class="stage-inner reveal-stage">
       <div class="reveal-icon">&#10024;</div>
       <h2 class="stage-title reveal-title">The Journey Awaits</h2>
       <div class="divider gold"></div>
       <p class="reveal-text">
         My love,<br><br>
-        Like the three comrades who knew that <em>true wealth lies not in what we have, but in who we hold dear</em> &mdash;
+        Like the three comrades who knew that <em>true wealth lies not in what we have, but in who we hold dear</em>,
+        like the Little Prince who crossed the universe to return to his rose &mdash;
         I want to take you on an adventure.<br><br>
         Where the ancient stones of Tiberias meet the gentle waves of the Kinneret,
         where healing hot springs have soothed weary travelers for thousands of years,
@@ -177,13 +327,14 @@
 
       <div class="final-quote">
         <span class="quote-mark">&ldquo;</span>
-        The world is full of beautiful things &mdash; and among the most beautiful is the feeling of someone waiting for you at the end of a journey.
+        It is only with the heart that one can see rightly; what is essential is invisible to the eye.
         <span class="quote-mark">&rdquo;</span>
+        <div class="quote-author">&mdash; Antoine de Saint-Exup&eacute;ry, <a href="https://en.wikipedia.org/wiki/The_Little_Prince" target="_blank" rel="noopener" class="book-link"><em>The Little Prince</em></a></div>
       </div>
 
-      <a href="https://www.google.com/maps/place/Leonardo+Club+Hotel+Tiberias/@32.7922,35.5307,15z"
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Leonardo+Club+Hotel+Tiberias+Israel"
          target="_blank" rel="noopener" class="btn-quest btn-map">
-        &#128205; View on Map
+        &#128205; Navigate to Hotel
       </a>
     </div>
   </section>

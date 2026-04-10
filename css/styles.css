@@ -222,6 +222,17 @@ body {
   text-align: right;
 }
 
+.book-link {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--gold-dark);
+  transition: color 0.3s;
+}
+
+.book-link:hover {
+  color: var(--gold-light);
+}
+
 /* ---- Answer box ---- */
 .answer-box {
   margin-top: 2rem;

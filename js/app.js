@@ -1,5 +1,5 @@
 /* ============================================
-   Quest App — Three Comrades × Tiberias
+   Quest App — Three Comrades × Little Prince × Tiberias
    ============================================ */
 
 // ---------- Stars Background ----------
@@ -48,20 +48,35 @@
 
 // ---------- Quest Logic ----------
 
+const TOTAL_STAGES = 7;
+
 const ANSWERS = {
   1: ['pat', 'patricia', 'patrice'],
-  2: ['tiberias', 'tverya', 'tveria', 'tiberius', 'טבריה', 'טבריא'],
-  3: ['kinneret', 'kineret', 'כינרת', 'כנרת', 'sea of galilee', 'galilee']
+  2: ['rose', 'roses', 'red roses', 'ורדים', 'ורד'],
+  3: ['germany', 'deutschland', 'גרמניה'],
+  4: ['fox', 'the fox', 'שועל', 'השועל'],
+  5: ['b-612', 'b612', 'b 612', 'asteroid b-612'],
+  6: ['tiberias', 'tverya', 'tveria', 'tiberius', 'טבריה', 'טבריא'],
+  7: ['kinneret', 'kineret', 'כינרת', 'כנרת', 'sea of galilee', 'galilee']
 };
-
-let attemptCounts = { 1: 0, 2: 0, 3: 0 };
-let hintShown = { 1: false, 2: false, 3: false };
 
 const DISPLAY_ANSWERS = {
   1: 'Pat',
-  2: 'Tiberias',
-  3: 'Kinneret'
+  2: 'Roses',
+  3: 'Germany',
+  4: 'Fox',
+  5: 'B-612',
+  6: 'Tiberias',
+  7: 'Kinneret'
 };
+
+let attemptCounts = {};
+let hintShown = {};
+let hintTimers = {};
+for (let i = 1; i <= TOTAL_STAGES; i++) {
+  attemptCounts[i] = 0;
+  hintShown[i] = false;
+}
 
 function startQuest() {
   transitionTo('stage1');
@@ -83,21 +98,31 @@ function transitionTo(stageId) {
       next.classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
-      // Focus the input for clue stages
+      // Focus the input and start hint timer for clue stages
       const stageNum = parseInt(stageId.replace('stage', ''));
-      if (stageNum >= 1 && stageNum <= 3) {
+      if (stageNum >= 1 && stageNum <= TOTAL_STAGES) {
+        startHintTimer(stageNum);
         setTimeout(() => {
           const input = document.getElementById('answer' + stageNum);
           if (input) input.focus();
         }, 800);
       }
 
-      // Fire confetti on final stage
-      if (stageId === 'stage4') {
+      // Fire confetti on final reveal stage
+      if (stageId === 'stage' + (TOTAL_STAGES + 1)) {
         setTimeout(launchConfetti, 600);
       }
     }, 600);
   }
+}
+
+// Show hint button after 20 seconds of being on a stage
+function startHintTimer(stage) {
+  if (hintTimers[stage]) clearTimeout(hintTimers[stage]);
+  hintTimers[stage] = setTimeout(() => {
+    const hintBtn = document.getElementById('hintBtn' + stage);
+    if (hintBtn) hintBtn.classList.remove('hidden');
+  }, 20000);
 }
 
 function showHint(stage) {
@@ -107,11 +132,11 @@ function showHint(stage) {
   if (hintBtn) hintBtn.classList.add('hidden');
   hintShown[stage] = true;
 
-  // Show the "reveal answer" button after a short delay
+  // Show the "reveal answer" button after 8 seconds
   setTimeout(() => {
     const revealBtn = document.getElementById('revealBtn' + stage);
     if (revealBtn) revealBtn.classList.remove('hidden');
-  }, 8000); // 8 seconds after hint is shown
+  }, 8000);
 }
 
 function revealAnswer(stage) {
@@ -128,7 +153,6 @@ function revealAnswer(stage) {
     i++;
     if (i >= answer.length) {
       clearInterval(typeInterval);
-      // Auto-submit after typing completes
       setTimeout(() => checkAnswer(stage), 500);
     }
   }, 120);
@@ -156,6 +180,7 @@ function checkAnswer(stage) {
     if (hintBtn) hintBtn.classList.add('hidden');
     const revealBtn = document.getElementById('revealBtn' + stage);
     if (revealBtn) revealBtn.classList.add('hidden');
+    if (hintTimers[stage]) clearTimeout(hintTimers[stage]);
 
     setTimeout(() => {
       transitionTo('stage' + (stage + 1));
@@ -169,6 +194,13 @@ function checkAnswer(stage) {
     const error = document.getElementById('error' + stage);
     if (error) error.classList.remove('hidden');
 
+    // Show hint button after first wrong attempt
+    if (attemptCounts[stage] >= 1) {
+      if (hintTimers[stage]) clearTimeout(hintTimers[stage]);
+      const hintBtn = document.getElementById('hintBtn' + stage);
+      if (hintBtn) hintBtn.classList.remove('hidden');
+    }
+
     input.value = '';
     input.focus();
   }
@@ -181,7 +213,7 @@ document.addEventListener('keydown', function(e) {
     if (!active) return;
     const id = active.id;
     const stageNum = parseInt(id.replace('stage', ''));
-    if (stageNum >= 1 && stageNum <= 3) {
+    if (stageNum >= 1 && stageNum <= TOTAL_STAGES) {
       checkAnswer(stageNum);
     }
   }
