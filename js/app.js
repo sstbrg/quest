@@ -202,7 +202,7 @@ function checkAnswer(stage) {
   }
 
   var correct = ANSWERS[stage].some(function(a) {
-    return val === a || val.includes(a) || a.includes(val);
+    return val === a;
   });
 
   // Also try without spaces/dashes
@@ -210,7 +210,7 @@ function checkAnswer(stage) {
     var valClean = val.replace(/[\s\-]/g, '');
     correct = ANSWERS[stage].some(function(a) {
       var aClean = a.replace(/[\s\-]/g, '');
-      return valClean === aClean || valClean.includes(aClean) || aClean.includes(valClean);
+      return valClean === aClean;
     });
   }
 
