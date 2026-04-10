@@ -30,17 +30,17 @@
 
   function draw(time) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    stars.forEach(s => {
-      const twinkle = 0.5 + 0.5 * Math.sin(time * s.speed * 1000 + s.phase);
+    stars.forEach(function(s) {
+      var twinkle = 0.5 + 0.5 * Math.sin(time * s.speed * 1000 + s.phase);
       ctx.beginPath();
       ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(212, 190, 140, ${s.alpha * twinkle})`;
+      ctx.fillStyle = 'rgba(212, 190, 140, ' + (s.alpha * twinkle) + ')';
       ctx.fill();
     });
     requestAnimationFrame(draw);
   }
 
-  window.addEventListener('resize', () => { resize(); createStars(); });
+  window.addEventListener('resize', function() { resize(); createStars(); });
   resize();
   createStars();
   requestAnimationFrame(draw);
@@ -48,34 +48,38 @@
 
 // ---------- Quest Logic ----------
 
-const TOTAL_STAGES = 7;
+var TOTAL_STAGES = 8;
+var REVEAL_STAGE = TOTAL_STAGES + 1; // stage9
 
-const ANSWERS = {
+var ANSWERS = {
   1: ['pat', 'patricia', 'patrice'],
   2: ['lilac', 'lilacs', 'לילך', 'לילכים'],
-  3: ['germany', 'deutschland', 'גרמניה'],
-  4: ['fox', 'the fox', 'שועל', 'השועל'],
-  5: ['b-612', 'b612', 'b 612', 'asteroid b-612'],
-  6: ['tiberias', 'tverya', 'tveria', 'tiberius', 'טבריה', 'טבריא'],
-  7: ['kinneret', 'kineret', 'כינרת', 'כנרת', 'sea of galilee', 'galilee']
+  3: ['karl', 'carl'],
+  4: ['gottfried', 'gotfried'],
+  5: ['fox', 'the fox', 'שועל', 'השועל'],
+  6: ['rose', 'a rose', 'his rose', 'the rose', 'ורד'],
+  7: ['tiberias', 'tverya', 'tveria', 'tiberius', 'טבריה', 'טבריא'],
+  8: ['kinneret', 'kineret', 'כינרת', 'כנרת', 'sea of galilee', 'galilee']
 };
 
-const DISPLAY_ANSWERS = {
+var DISPLAY_ANSWERS = {
   1: 'Pat',
   2: 'Lilacs',
-  3: 'Germany',
-  4: 'Fox',
-  5: 'B-612',
-  6: 'Tiberias',
-  7: 'Kinneret'
+  3: 'Karl',
+  4: 'Gottfried',
+  5: 'Fox',
+  6: 'A rose',
+  7: 'Tiberias',
+  8: 'Kinneret'
 };
 
-let attemptCounts = {};
-let hintShown = {};
-let hintTimers = {};
-for (let i = 1; i <= TOTAL_STAGES; i++) {
+var attemptCounts = {};
+var hintVisible = {};
+var hintTimers = {};
+var revealTimers = {};
+for (var i = 1; i <= TOTAL_STAGES; i++) {
   attemptCounts[i] = 0;
-  hintShown[i] = false;
+  hintVisible[i] = false;
 }
 
 function startQuest() {
@@ -83,122 +87,133 @@ function startQuest() {
 }
 
 function transitionTo(stageId) {
-  const current = document.querySelector('.stage.active');
+  var current = document.querySelector('.stage.active');
   if (current) {
     current.style.opacity = '0';
     current.style.transform = 'translateY(-20px)';
     current.style.transition = 'all 0.6s ease';
-    setTimeout(() => {
+    setTimeout(function() {
       current.classList.remove('active');
       current.style.opacity = '';
       current.style.transform = '';
       current.style.transition = '';
 
-      const next = document.getElementById(stageId);
+      var next = document.getElementById(stageId);
       next.classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
-      // Focus the input and start hint timer for clue stages
-      const stageNum = parseInt(stageId.replace('stage', ''));
+      var stageNum = parseInt(stageId.replace('stage', ''));
       if (stageNum >= 1 && stageNum <= TOTAL_STAGES) {
         startHintTimer(stageNum);
-        setTimeout(() => {
-          const input = document.getElementById('answer' + stageNum);
+        setTimeout(function() {
+          var input = document.getElementById('answer' + stageNum);
           if (input) input.focus();
         }, 800);
       }
 
-      // Fire confetti on final reveal stage
-      if (stageId === 'stage' + (TOTAL_STAGES + 1)) {
+      // Fire confetti on reveal
+      if (stageNum === REVEAL_STAGE) {
         setTimeout(launchConfetti, 600);
       }
     }, 600);
   }
 }
 
-// Show hint button after 20 seconds of being on a stage
+// Show hint button after 20 seconds OR after a wrong answer
 function startHintTimer(stage) {
   if (hintTimers[stage]) clearTimeout(hintTimers[stage]);
-  hintTimers[stage] = setTimeout(() => {
-    const hintBtn = document.getElementById('hintBtn' + stage);
-    if (hintBtn) hintBtn.classList.remove('hidden');
+  hintTimers[stage] = setTimeout(function() {
+    showHintButton(stage);
   }, 20000);
 }
 
+function showHintButton(stage) {
+  var hintBtn = document.getElementById('hintBtn' + stage);
+  if (hintBtn) hintBtn.classList.remove('hidden');
+}
+
 function showHint(stage) {
-  const hint = document.getElementById('hint' + stage);
-  const hintBtn = document.getElementById('hintBtn' + stage);
+  var hint = document.getElementById('hint' + stage);
+  var hintBtn = document.getElementById('hintBtn' + stage);
   if (hint) hint.classList.remove('hidden');
   if (hintBtn) hintBtn.classList.add('hidden');
-  hintShown[stage] = true;
+  hintVisible[stage] = true;
+  if (hintTimers[stage]) clearTimeout(hintTimers[stage]);
 
-  // Show the "reveal answer" button after 8 seconds
-  setTimeout(() => {
-    const revealBtn = document.getElementById('revealBtn' + stage);
+  // Show "reveal answer" button after 8 seconds
+  if (revealTimers[stage]) clearTimeout(revealTimers[stage]);
+  revealTimers[stage] = setTimeout(function() {
+    var revealBtn = document.getElementById('revealBtn' + stage);
     if (revealBtn) revealBtn.classList.remove('hidden');
   }, 8000);
 }
 
 function revealAnswer(stage) {
-  const input = document.getElementById('answer' + stage);
-  const revealBtn = document.getElementById('revealBtn' + stage);
+  var input = document.getElementById('answer' + stage);
+  var revealBtn = document.getElementById('revealBtn' + stage);
   if (revealBtn) revealBtn.classList.add('hidden');
 
-  // Type out the answer letter by letter
-  const answer = DISPLAY_ANSWERS[stage];
+  var answer = DISPLAY_ANSWERS[stage];
   input.value = '';
-  let i = 0;
-  const typeInterval = setInterval(() => {
-    input.value += answer[i];
-    i++;
-    if (i >= answer.length) {
+  var idx = 0;
+  var typeInterval = setInterval(function() {
+    input.value += answer[idx];
+    idx++;
+    if (idx >= answer.length) {
       clearInterval(typeInterval);
-      setTimeout(() => checkAnswer(stage), 500);
+      setTimeout(function() { checkAnswer(stage); }, 500);
     }
   }, 120);
 }
 
 function checkAnswer(stage) {
-  const input = document.getElementById('answer' + stage);
-  const val = input.value.trim().toLowerCase();
+  var input = document.getElementById('answer' + stage);
+  var val = input.value.trim().toLowerCase();
 
   if (!val) {
     input.classList.add('shake');
-    setTimeout(() => input.classList.remove('shake'), 500);
+    setTimeout(function() { input.classList.remove('shake'); }, 500);
     return;
   }
 
-  const correct = ANSWERS[stage].some(a => val.includes(a) || a.includes(val));
+  var correct = ANSWERS[stage].some(function(a) {
+    return val.includes(a) || a.includes(val);
+  });
 
   if (correct) {
-    // Success
     input.classList.add('success');
     input.disabled = true;
-    const error = document.getElementById('error' + stage);
+    var error = document.getElementById('error' + stage);
     if (error) error.classList.add('hidden');
-    const hintBtn = document.getElementById('hintBtn' + stage);
+    var hintBtn = document.getElementById('hintBtn' + stage);
     if (hintBtn) hintBtn.classList.add('hidden');
-    const revealBtn = document.getElementById('revealBtn' + stage);
+    var revealBtn = document.getElementById('revealBtn' + stage);
     if (revealBtn) revealBtn.classList.add('hidden');
     if (hintTimers[stage]) clearTimeout(hintTimers[stage]);
+    if (revealTimers[stage]) clearTimeout(revealTimers[stage]);
 
-    setTimeout(() => {
+    setTimeout(function() {
       transitionTo('stage' + (stage + 1));
     }, 1000);
   } else {
-    // Wrong answer
     attemptCounts[stage]++;
     input.classList.add('shake');
-    setTimeout(() => input.classList.remove('shake'), 500);
+    setTimeout(function() { input.classList.remove('shake'); }, 500);
 
-    const error = document.getElementById('error' + stage);
+    var error = document.getElementById('error' + stage);
     if (error) error.classList.remove('hidden');
 
-    // Show hint button after first wrong attempt
+    // Show hint button after first wrong answer
     if (attemptCounts[stage] >= 1) {
       if (hintTimers[stage]) clearTimeout(hintTimers[stage]);
-      const hintBtn = document.getElementById('hintBtn' + stage);
-      if (hintBtn) hintBtn.classList.remove('hidden');
+      showHintButton(stage);
+    }
+
+    // If hint is already visible and 3+ wrong attempts, show reveal button
+    if (hintVisible[stage] && attemptCounts[stage] >= 3) {
+      if (revealTimers[stage]) clearTimeout(revealTimers[stage]);
+      var revealBtn = document.getElementById('revealBtn' + stage);
+      if (revealBtn) revealBtn.classList.remove('hidden');
     }
 
     input.value = '';
@@ -206,13 +221,12 @@ function checkAnswer(stage) {
   }
 }
 
-// Allow Enter key to submit answers
+// Enter key to submit
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Enter') {
-    const active = document.querySelector('.stage.active');
+    var active = document.querySelector('.stage.active');
     if (!active) return;
-    const id = active.id;
-    const stageNum = parseInt(id.replace('stage', ''));
+    var stageNum = parseInt(active.id.replace('stage', ''));
     if (stageNum >= 1 && stageNum <= TOTAL_STAGES) {
       checkAnswer(stageNum);
     }
@@ -221,16 +235,16 @@ document.addEventListener('keydown', function(e) {
 
 // ---------- Confetti ----------
 function launchConfetti() {
-  const canvas = document.getElementById('confetti-canvas');
-  const ctx = canvas.getContext('2d');
+  var canvas = document.getElementById('confetti-canvas');
+  var ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
-  const pieces = [];
-  const COLORS = ['#d4a853', '#f0d48a', '#a07830', '#f5e6c8', '#e8d5b0', '#fff', '#ffd700'];
-  const PIECE_COUNT = 150;
+  var pieces = [];
+  var COLORS = ['#d4a853', '#f0d48a', '#a07830', '#f5e6c8', '#e8d5b0', '#fff', '#ffd700'];
+  var PIECE_COUNT = 150;
 
-  for (let i = 0; i < PIECE_COUNT; i++) {
+  for (var i = 0; i < PIECE_COUNT; i++) {
     pieces.push({
       x: Math.random() * canvas.width,
       y: -20 - Math.random() * canvas.height * 0.5,
@@ -245,18 +259,18 @@ function launchConfetti() {
     });
   }
 
-  let frame = 0;
-  const MAX_FRAMES = 300;
+  var frame = 0;
+  var MAX_FRAMES = 300;
 
   function animate() {
     frame++;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     if (frame > MAX_FRAMES - 60) {
-      pieces.forEach(p => { p.alpha = Math.max(0, p.alpha - 0.016); });
+      pieces.forEach(function(p) { p.alpha = Math.max(0, p.alpha - 0.016); });
     }
 
-    pieces.forEach(p => {
+    pieces.forEach(function(p) {
       p.y += p.vy;
       p.x += p.vx + Math.sin(p.y * 0.02) * 0.5;
       p.rot += p.rotSpeed;
