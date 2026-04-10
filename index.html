@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>A Quest for You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x2728;</text></svg>">
+</head>
+<body>
+  <canvas id="stars-canvas"></canvas>
+
+  <!-- PRELUDE: Entrance -->
+  <section id="prelude" class="stage active">
+    <div class="stage-inner">
+      <div class="ornament">&#10053;</div>
+      <h1 class="title-main">A Quest Awaits You</h1>
+      <p class="subtitle">A journey of love, history &amp; mystery</p>
+      <div class="divider"></div>
+      <p class="intro-text">
+        Good morning, my love.<br><br>
+        Today is no ordinary day. I've prepared something special for you &mdash;
+        a quest woven from the pages of a great novel and the ancient stones of a legendary city.<br><br>
+        Three comrades once knew that <em>the greatest adventure is the one taken for love.</em><br><br>
+        Are you ready to begin?
+      </p>
+      <button class="btn-quest" onclick="startQuest()">Begin the Quest</button>
+    </div>
+  </section>
+
+  <!-- STAGE 1: Three Comrades -->
+  <section id="stage1" class="stage">
+    <div class="stage-inner">
+      <div class="stage-number">I</div>
+      <h2 class="stage-title">The Comrades' Secret</h2>
+      <div class="divider"></div>
+      <div class="book-quote">
+        <span class="quote-mark">&ldquo;</span>
+        I thought of the strange, almost mystical feeling of two people who love each other &mdash;
+        how, from being merely ordinary, their world becomes extraordinary.
+        <span class="quote-mark">&rdquo;</span>
+        <div class="quote-author">&mdash; Erich Maria Remarque, <em>Three Comrades</em></div>
+      </div>
+      <p class="clue-text">
+        In Remarque's tale, three devoted friends &mdash; Robert, Otto, and Gottfried &mdash;
+        navigate a world in turmoil. They fix cars by day and dream by night.
+        But Robert discovers something more powerful than any friendship or any engine:<br><br>
+        <strong>He falls deeply, irrevocably in love.</strong><br><br>
+        She was fragile yet fierce, a light in a darkening world.
+        Their love story is one of literature's most tender and heartbreaking.<br><br>
+        <em>What was the name of the woman Robert loved?</em>
+      </p>
+      <div class="answer-box">
+        <input type="text" id="answer1" class="answer-input" placeholder="Enter her name..." autocomplete="off">
+        <div id="hint1" class="hint hidden">
+          <span class="hint-icon">&#9733;</span> Hint: Her full name is Patricia, but Robert always called her by a shorter, sweeter name...
+        </div>
+        <div id="error1" class="error-msg hidden">Not quite... think about the name Robert whispered to her</div>
+        <button class="btn-quest" onclick="checkAnswer(1)">Unlock Next Clue</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE 2: The Ancient City -->
+  <section id="stage2" class="stage">
+    <div class="stage-inner">
+      <div class="stage-number">II</div>
+      <h2 class="stage-title">The Emperor's City</h2>
+      <div class="divider"></div>
+      <p class="clue-text">
+        Like the love between Robert and Pat &mdash; timeless and enduring &mdash;
+        there exists a city that has witnessed two thousand years of history unfold along the shores of a great water.<br><br>
+        This city was founded around <strong>20 CE</strong> by <strong>Herod Antipas</strong>,
+        who named it in honor of the Roman Emperor who ruled the known world.<br><br>
+        It became one of the <strong>four holy cities</strong> of the Jewish people.
+        Within its walls, the great scholars composed the <em>Jerusalem Talmud</em>,
+        shaping the wisdom of generations.<br><br>
+        The great philosopher and physician <strong>Maimonides</strong> chose this city as his eternal resting place.<br><br>
+        <em>What is this ancient and holy city?</em>
+      </p>
+      <div class="answer-box">
+        <input type="text" id="answer2" class="answer-input" placeholder="Name the city..." autocomplete="off">
+        <div id="hint2" class="hint hidden">
+          <span class="hint-icon">&#9733;</span> Hint: The Emperor's name was Tiberius... and the city still carries his legacy.
+        </div>
+        <div id="error2" class="error-msg hidden">Not quite... the Emperor's name was Tiberius. The city bears his name.</div>
+        <button class="btn-quest" onclick="checkAnswer(2)">Unlock Next Clue</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE 3: The Sea -->
+  <section id="stage3" class="stage">
+    <div class="stage-inner">
+      <div class="stage-number">III</div>
+      <h2 class="stage-title">The Harp-Shaped Sea</h2>
+      <div class="divider"></div>
+      <p class="clue-text">
+        Wonderful! You've found the city. But every great city has a great body of water that gives it life.<br><br>
+        Tiberias sits along the western shore of Israel's most beloved lake &mdash;
+        a body of water that has nourished civilizations for millennia.<br><br>
+        The ancients named it for its shape, which resembles a <strong>harp</strong>
+        (<em>kinnor</em> in Hebrew). Its waters are sweet, its sunsets legendary,
+        and its stories infinite.<br><br>
+        Jesus walked upon its waves. Fishermen have cast their nets here since before the time of kings.<br><br>
+        At <strong>209 meters below sea level</strong>, it is the lowest freshwater lake on Earth.<br><br>
+        <em>What is the Hebrew name of this legendary sea?</em>
+      </p>
+      <div class="answer-box">
+        <input type="text" id="answer3" class="answer-input" placeholder="Name the sea..." autocomplete="off">
+        <div id="hint3" class="hint hidden">
+          <span class="hint-icon">&#9733;</span> Hint: Named after the Hebrew word for "harp" &mdash; <em>kinnor</em>...
+        </div>
+        <div id="error3" class="error-msg hidden">Almost there... think about "kinnor" (harp) and add the place suffix...</div>
+        <button class="btn-quest" onclick="checkAnswer(3)">Unlock the Final Secret</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE 4: The Reveal -->
+  <section id="stage4" class="stage">
+    <div class="stage-inner reveal-stage">
+      <div class="reveal-icon">&#10024;</div>
+      <h2 class="stage-title reveal-title">The Journey Awaits</h2>
+      <div class="divider gold"></div>
+      <p class="reveal-text">
+        My love,<br><br>
+        Like the three comrades who knew that <em>true wealth lies not in what we have, but in who we hold dear</em> &mdash;
+        I want to take you on an adventure.<br><br>
+        Where the ancient stones of Tiberias meet the gentle waves of the Kinneret,
+        where healing hot springs have soothed weary travelers for thousands of years,
+        there awaits a place of luxury and tranquility &mdash; <strong>just for us</strong>.
+      </p>
+
+      <div class="hotel-card">
+        <div class="hotel-name">Leonardo Club Hotel</div>
+        <div class="hotel-sub">Tiberias &middot; Spa &middot; Sea of Galilee</div>
+        <div class="hotel-divider"></div>
+        <p class="hotel-desc">
+          A stunning waterfront retreat on the shores of the Kinneret.
+          Infinity pool overlooking the sea, world-class spa, gourmet dining,
+          and the magic of Tiberias at our doorstep.
+        </p>
+        <div class="hotel-details">
+          <div class="detail-item">
+            <div class="detail-icon">&#127754;</div>
+            <div class="detail-text">Waterfront Views</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">&#128134;</div>
+            <div class="detail-text">Luxury Spa</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">&#127860;</div>
+            <div class="detail-text">Fine Dining</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">&#9829;</div>
+            <div class="detail-text">Made with Love</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="pack-msg">Pack your bags &mdash; we're heading to Tiberias!</p>
+
+      <div class="final-quote">
+        <span class="quote-mark">&ldquo;</span>
+        The world is full of beautiful things &mdash; and among the most beautiful is the feeling of someone waiting for you at the end of a journey.
+        <span class="quote-mark">&rdquo;</span>
+      </div>
+
+      <a href="https://www.google.com/maps/place/Leonardo+Club+Hotel+Tiberias/@32.7922,35.5307,15z"
+         target="_blank" rel="noopener" class="btn-quest btn-map">
+        &#128205; View on Map
+      </a>
+    </div>
+  </section>
+
+  <!-- Confetti canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
