@@ -7,14 +7,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=10">
+  <link rel="stylesheet" href="css/styles.css?v=11">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x2728;</text></svg>">
 </head>
 <body>
   <canvas id="stars-canvas"></canvas>
 
   <!-- PRELUDE -->
-  <section id="prelude" class="stage active">
+  <section id="prelude" class="stage active" data-theme="intro">
     <div class="stage-inner">
       <div class="ornament">&#10053;</div>
       <h1 class="title-main">A Quest Awaits You</h1>
@@ -35,7 +35,7 @@
   </section>
 
   <!-- STAGE 1: Three Comrades — Pat -->
-  <section id="stage1" class="stage">
+  <section id="stage1" class="stage" data-theme="comrades">
     <div class="stage-inner">
       <div class="stage-number">I</div>
       <h2 class="stage-title">The Woman Who Changed Everything</h2>
@@ -70,7 +70,7 @@
   </section>
 
   <!-- STAGE 2: Three Comrades — Lilacs -->
-  <section id="stage2" class="stage">
+  <section id="stage2" class="stage" data-theme="comrades">
     <div class="stage-inner">
       <div class="stage-number">II</div>
       <h2 class="stage-title">The Stolen Bouquet</h2>
@@ -105,7 +105,7 @@
   </section>
 
   <!-- STAGE 3: Three Comrades — Karl -->
-  <section id="stage3" class="stage">
+  <section id="stage3" class="stage" data-theme="comrades">
     <div class="stage-inner">
       <div class="stage-number">III</div>
       <h2 class="stage-title">The Fourth Comrade</h2>
@@ -140,7 +140,7 @@
   </section>
 
   <!-- STAGE 4: Three Comrades — Gottfried -->
-  <section id="stage4" class="stage">
+  <section id="stage4" class="stage" data-theme="comrades">
     <div class="stage-inner">
       <div class="stage-number">IV</div>
       <h2 class="stage-title">The Last Romantic</h2>
@@ -176,7 +176,7 @@
   </section>
 
   <!-- STAGE 5: Three Comrades — Pat's illness -->
-  <section id="stage5" class="stage">
+  <section id="stage5" class="stage" data-theme="comrades">
     <div class="stage-inner">
       <div class="stage-number">V</div>
       <h2 class="stage-title">The Shadow Over Love</h2>
@@ -214,7 +214,7 @@
   </section>
 
   <!-- STAGE 6: Little Prince — The Lamplighter -->
-  <section id="stage6" class="stage">
+  <section id="stage6" class="stage" data-theme="prince">
     <div class="stage-inner">
       <div class="stage-number">VI</div>
       <h2 class="stage-title">The One Worth Admiring</h2>
@@ -252,7 +252,7 @@
   </section>
 
   <!-- STAGE 7: Little Prince — The Rose -->
-  <section id="stage7" class="stage">
+  <section id="stage7" class="stage" data-theme="prince">
     <div class="stage-inner">
       <div class="stage-number">VII</div>
       <h2 class="stage-title">Unique in All the World</h2>
@@ -288,7 +288,7 @@
   </section>
 
   <!-- STAGE 8: Little Prince — Ephemeral -->
-  <section id="stage8" class="stage">
+  <section id="stage8" class="stage" data-theme="prince">
     <div class="stage-inner">
       <div class="stage-number">VIII</div>
       <h2 class="stage-title">The Devastating Word</h2>
@@ -328,7 +328,7 @@
   </section>
 
   <!-- STAGE 9: Little Prince — Léon Werth (THE BRIDGE) -->
-  <section id="stage9" class="stage">
+  <section id="stage9" class="stage" data-theme="prince">
     <div class="stage-inner">
       <div class="stage-number">IX</div>
       <h2 class="stage-title">The Dedication</h2>
@@ -368,7 +368,7 @@
   </section>
 
   <!-- STAGE 10: Tiberias -->
-  <section id="stage10" class="stage">
+  <section id="stage10" class="stage" data-theme="tiberias">
     <div class="stage-inner">
       <div class="stage-number">X</div>
       <h2 class="stage-title">The Emperor's City</h2>
@@ -397,7 +397,7 @@
   </section>
 
   <!-- STAGE 11: Tiberius and Vipsania -->
-  <section id="stage11" class="stage">
+  <section id="stage11" class="stage" data-theme="tiberias">
     <div class="stage-inner">
       <div class="stage-number">XI</div>
       <h2 class="stage-title">The Emperor's Tears</h2>
@@ -430,7 +430,7 @@
   </section>
 
   <!-- STAGE 12: The Healing Springs -->
-  <section id="stage12" class="stage">
+  <section id="stage12" class="stage" data-theme="tiberias">
     <div class="stage-inner">
       <div class="stage-number">XII</div>
       <h2 class="stage-title">The Healing Waters</h2>
@@ -461,7 +461,7 @@
   </section>
 
   <!-- STAGE 13: The Rambam -->
-  <section id="stage13" class="stage">
+  <section id="stage13" class="stage" data-theme="tiberias">
     <div class="stage-inner">
       <div class="stage-number">XIII</div>
       <h2 class="stage-title">The Great Eagle</h2>
@@ -493,7 +493,7 @@
   </section>
 
   <!-- STAGE 14: Kinneret -->
-  <section id="stage14" class="stage">
+  <section id="stage14" class="stage" data-theme="tiberias">
     <div class="stage-inner">
       <div class="stage-number">XIV</div>
       <h2 class="stage-title">The Sweetwater Sea</h2>
@@ -523,7 +523,7 @@
   </section>
 
   <!-- STAGE 15: The Reveal -->
-  <section id="stage15" class="stage">
+  <section id="stage15" class="stage" data-theme="reveal">
     <div class="stage-inner reveal-stage">
       <div class="reveal-icon">&#10024;</div>
       <h2 class="stage-title reveal-title">The Journey Awaits</h2>
@@ -584,6 +584,6 @@
   </section>
 
   <canvas id="confetti-canvas"></canvas>
-  <script src="js/app.js?v=10"></script>
+  <script src="js/app.js?v=11"></script>
 </body>
 </html>

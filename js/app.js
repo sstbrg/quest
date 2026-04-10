@@ -112,6 +112,19 @@ function transitionTo(stageId) {
 
       var next = document.getElementById(stageId);
       next.classList.add('active');
+      // Update background color based on theme
+      var theme = next.getAttribute('data-theme');
+      if (theme === 'comrades') {
+        document.body.style.backgroundColor = '#1a0a0f';
+      } else if (theme === 'prince') {
+        document.body.style.backgroundColor = '#080f28';
+      } else if (theme === 'tiberias') {
+        document.body.style.backgroundColor = '#120f08';
+      } else if (theme === 'reveal') {
+        document.body.style.backgroundColor = '#0a0c19';
+      } else {
+        document.body.style.backgroundColor = '#0a1225';
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
       var stageNum = parseInt(stageId.replace('stage', ''));
