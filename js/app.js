@@ -177,8 +177,17 @@ function checkAnswer(stage) {
   }
 
   var correct = ANSWERS[stage].some(function(a) {
-    return val.includes(a) || a.includes(val);
+    return val === a || val.includes(a) || a.includes(val);
   });
+
+  // Also try without spaces/dashes
+  if (!correct) {
+    var valClean = val.replace(/[\s\-]/g, '');
+    correct = ANSWERS[stage].some(function(a) {
+      var aClean = a.replace(/[\s\-]/g, '');
+      return valClean === aClean || valClean.includes(aClean) || aClean.includes(valClean);
+    });
+  }
 
   if (correct) {
     input.classList.add('success');
