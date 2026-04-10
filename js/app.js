@@ -52,20 +52,20 @@ var TOTAL_STAGES = 14;
 var REVEAL_STAGE = TOTAL_STAGES + 1; // stage15
 
 var ANSWERS = {
-  1: ['pat', 'patricia', 'patrice'],
-  2: ['lilac', 'lilacs', 'lilak', 'לילך', 'לילכים'],
-  3: ['karl', 'carl'],
-  4: ['gottfried', 'gotfried'],
-  5: ['tuberculosis', 'tb', 'consumption', 'שחפת'],
-  6: ['lamplighter', 'lamp lighter', 'the lamplighter', 'פנסן'],
-  7: ['rose', 'a rose', 'the rose', 'his rose', 'ורד', 'שושנה'],
-  8: ['ephemeral', 'efemeral', 'éphémère'],
-  9: ['leon werth', 'léon werth', 'werth', 'leon vert', 'לאון ורת'],
-  10: ['tiberias', 'tverya', 'tveria', 'tiberius', 'טבריה', 'טבריא'],
-  11: ['vipsania', 'vipsania agrippina', 'agrippina'],
-  12: ['hamat', 'hammat', 'hamat tiberias', 'hammat tiberias', 'hammath', 'חמת', 'חמת טבריה'],
-  13: ['rambam', 'רמבם', 'maimonides'],
-  14: ['kinneret', 'kineret', 'כינרת', 'כנרת', 'sea of galilee', 'galilee']
+  1: ['pat'],
+  2: ['lilacs', 'lilac'],
+  3: ['karl'],
+  4: ['gottfried'],
+  5: ['tuberculosis'],
+  6: ['lamplighter'],
+  7: ['rose'],
+  8: ['ephemeral'],
+  9: ['leon werth', 'léon werth'],
+  10: ['tiberias', 'טבריה'],
+  11: ['vipsania'],
+  12: ['hamat', 'hammat', 'hamat tiberias', 'חמת טבריה'],
+  13: ['rambam', 'רמבם'],
+  14: ['kinneret', 'kineret', 'כינרת']
 };
 
 var DISPLAY_ANSWERS = {
