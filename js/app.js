@@ -48,18 +48,21 @@
 
 // ---------- Quest Logic ----------
 
-var TOTAL_STAGES = 8;
-var REVEAL_STAGE = TOTAL_STAGES + 1; // stage9
+var TOTAL_STAGES = 11;
+var REVEAL_STAGE = TOTAL_STAGES + 1; // stage12
 
 var ANSWERS = {
   1: ['pat', 'patricia', 'patrice'],
   2: ['lilac', 'lilacs', 'lilak', 'לילך', 'לילכים'],
   3: ['karl', 'carl'],
   4: ['gottfried', 'gotfried'],
-  5: ['boa', 'boa constrictor', 'snake', 'serpent', 'elephant', 'snake eating elephant', 'snake swallowed elephant', 'boa constrictor swallowing elephant', 'snake that ate an elephant', 'נחש', 'בואה'],
-  6: ['44', 'forty four', 'forty-four', 'fourty four', 'fourty-four', 'quarante-quatre'],
-  7: ['tiberias', 'tverya', 'tveria', 'tiberius', 'טבריה', 'טבריא'],
-  8: ['kinneret', 'kineret', 'כינרת', 'כנרת', 'sea of galilee', 'galilee']
+  5: ['fox', 'the fox', 'שועל', 'השועל'],
+  6: ['rose', 'a rose', 'the rose', 'his rose', 'ורד', 'שושנה'],
+  7: ['leon werth', 'léon werth', 'werth', 'leon vert', 'לאון ורת'],
+  8: ['tiberias', 'tverya', 'tveria', 'tiberius', 'טבריה', 'טבריא'],
+  9: ['hamat', 'hammat', 'hamat tiberias', 'hammat tiberias', 'hammath', 'חמת', 'חמת טבריה'],
+  10: ['rambam', 'רמבם', 'maimonides'],
+  11: ['kinneret', 'kineret', 'כינרת', 'כנרת', 'sea of galilee', 'galilee']
 };
 
 var DISPLAY_ANSWERS = {
@@ -67,10 +70,13 @@ var DISPLAY_ANSWERS = {
   2: 'Lilacs',
   3: 'Karl',
   4: 'Gottfried',
-  5: 'A boa constrictor swallowing an elephant',
-  6: '44',
-  7: 'Tiberias',
-  8: 'Kinneret'
+  5: 'Fox',
+  6: 'Rose',
+  7: 'Léon Werth',
+  8: 'Tiberias',
+  9: 'Hamat Tiberias',
+  10: 'Rambam',
+  11: 'Kinneret'
 };
 
 var attemptCounts = {};
