@@ -7,13 +7,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=5">
+  <link rel="stylesheet" href="css/styles.css?v=6">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x2728;</text></svg>">
 </head>
 <body>
   <canvas id="stars-canvas"></canvas>
 
-  <!-- PRELUDE: Entrance -->
+  <!-- PRELUDE -->
   <section id="prelude" class="stage active">
     <div class="stage-inner">
       <div class="ornament">&#10053;</div>
@@ -38,7 +38,7 @@
   <section id="stage1" class="stage">
     <div class="stage-inner">
       <div class="stage-number">I</div>
-      <h2 class="stage-title">The Comrades' Secret</h2>
+      <h2 class="stage-title">The Woman Who Changed Everything</h2>
       <div class="divider"></div>
       <div class="book-quote">
         <span class="quote-mark">&ldquo;</span>
@@ -48,22 +48,21 @@
         <div class="quote-author">&mdash; Erich Maria Remarque, <em>Three Comrades</em></div>
       </div>
       <p class="clue-text">
-        In Remarque's tale, three devoted friends &mdash; Robert, Otto, and Gottfried &mdash;
-        navigate a world in turmoil. They fix cars by day and dream by night.
-        But Robert discovers something more powerful than any friendship or any engine:<br><br>
-        <strong>He falls deeply, irrevocably in love.</strong><br><br>
-        She was fragile yet fierce, a light in a darkening world.
-        Their love story is one of literature's most tender and heartbreaking.<br><br>
-        <em>What was the name of the woman Robert loved?</em>
+        In Remarque's 1936 novel, three war veterans run a small auto repair shop
+        in a crumbling republic. One of them falls in love with a woman whose beauty
+        is matched only by her fragility.<br><br>
+        Her full name was Patricia Hollmann &mdash; but the man who loved her
+        never once called her that.<br><br>
+        <em>What was her nickname &mdash; the name he whispered?</em>
       </p>
       <div class="answer-box">
-        <input type="text" id="answer1" class="answer-input" placeholder="Enter her name..." autocomplete="off">
-        <div id="error1" class="error-msg hidden">Not quite... think about the name Robert whispered to her</div>
+        <input type="text" id="answer1" class="answer-input" placeholder="Her nickname..." autocomplete="off">
+        <div id="error1" class="error-msg hidden">Not quite... it's a short form of Patricia.</div>
         <button class="btn-quest" onclick="checkAnswer(1)">Unlock Next Clue</button>
         <br>
         <button id="hintBtn1" class="btn-hint hidden" onclick="showHint(1)">Need a hint?</button>
         <div id="hint1" class="hint hidden">
-          <span class="hint-icon">&#9733;</span> Her full name is Patricia, but Robert always called her by a shorter, sweeter name...
+          <span class="hint-icon">&#9733;</span> Three letters. Starts with P.
         </div>
         <button id="revealBtn1" class="btn-reveal hidden" onclick="revealAnswer(1)">I'm really stuck &mdash; show me the answer</button>
       </div>
@@ -74,7 +73,7 @@
   <section id="stage2" class="stage">
     <div class="stage-inner">
       <div class="stage-number">II</div>
-      <h2 class="stage-title">The First Bouquet</h2>
+      <h2 class="stage-title">The Stolen Bouquet</h2>
       <div class="divider"></div>
       <div class="book-quote">
         <span class="quote-mark">&ldquo;</span>
@@ -84,25 +83,21 @@
         <div class="quote-author">&mdash; Erich Maria Remarque, <em>Three Comrades</em></div>
       </div>
       <p class="clue-text">
-        The <strong>very first time</strong> Robert went to visit Pat at her apartment,
-        he wanted to bring her flowers. But he didn't go to a shop &mdash;
-        that wasn't his style.<br><br>
-        Instead, he stopped at a <strong>public park</strong> and picked them himself,
-        right off the branches &mdash; clusters of purple and white blossoms,
-        heavy with the most intoxicating fragrance of spring.<br><br>
-        It was an impulsive, tender, slightly illegal gesture &mdash;
-        and it was <em>perfectly Robert</em>. No grand florist bouquet could have
-        said more than those freshly stolen blooms.<br><br>
-        <em>What flowers did Robert pick from the park for Pat?</em>
+        The very first time Robert went to visit Pat at her apartment,
+        he wanted to bring her flowers. But he didn't go to a florist.<br><br>
+        Instead, on the way there, he stopped at a public park and
+        broke off branches of blossoms &mdash; a spontaneous, imperfect,
+        <em>perfectly Robert</em> gesture.<br><br>
+        <em>What flowers did he pick from that park?</em>
       </p>
       <div class="answer-box">
-        <input type="text" id="answer2" class="answer-input" placeholder="Enter the flower..." autocomplete="off">
-        <div id="error2" class="error-msg hidden">Not quite... think of a fragrant purple spring flower, picked from branches...</div>
+        <input type="text" id="answer2" class="answer-input" placeholder="Which flowers?" autocomplete="off">
+        <div id="error2" class="error-msg hidden">Not quite... think of a fragrant flower that blooms in spring on bushes and trees.</div>
         <button class="btn-quest" onclick="checkAnswer(2)">Unlock Next Clue</button>
         <br>
         <button id="hintBtn2" class="btn-hint hidden" onclick="showHint(2)">Need a hint?</button>
         <div id="hint2" class="hint hidden">
-          <span class="hint-icon">&#9733;</span> Purple clusters, heavenly spring scent &mdash; they share a name with a shade of purple...
+          <span class="hint-icon">&#9733;</span> This flower shares its name with a shade of purple.
         </div>
         <button id="revealBtn2" class="btn-reveal hidden" onclick="revealAnswer(2)">I'm really stuck &mdash; show me the answer</button>
       </div>
@@ -113,7 +108,7 @@
   <section id="stage3" class="stage">
     <div class="stage-inner">
       <div class="stage-number">III</div>
-      <h2 class="stage-title">The Chariot of Fate</h2>
+      <h2 class="stage-title">The Fourth Comrade</h2>
       <div class="divider"></div>
       <div class="book-quote">
         <span class="quote-mark">&ldquo;</span>
@@ -123,24 +118,21 @@
         <div class="quote-author">&mdash; Erich Maria Remarque, <em>Three Comrades</em></div>
       </div>
       <p class="clue-text">
-        Every great love story has a moment when fate intervenes.<br><br>
-        For Robert and Pat, that moment came on four wheels. The three comrades had
-        poured their hearts into restoring an old racing car &mdash; battered on the outside,
-        but with the soul of a champion beneath the hood.<br><br>
-        They loved this car so much they gave it <strong>a human name</strong>,
-        as if it were a fourth member of their brotherhood.
-        And it was in this very car, on a moonlit drive through the city,
-        that Robert first sat beside Pat &mdash; <strong>the night everything began</strong>.<br><br>
-        <em>What name did the three comrades give their beloved car?</em>
+        The three comrades restored an old racing car &mdash; unremarkable on the outside,
+        but with the heart of a champion under the hood. They treated it as a brother
+        and gave it a man's name.<br><br>
+        It was in this car, on a drive through the glittering city at night,
+        that Robert and Pat first sat side by side.<br><br>
+        <em>What was the car's name?</em>
       </p>
       <div class="answer-box">
-        <input type="text" id="answer3" class="answer-input" placeholder="Enter the car's name..." autocomplete="off">
-        <div id="error3" class="error-msg hidden">Not quite... it's a short, classic name &mdash; one you'd give a loyal old friend.</div>
+        <input type="text" id="answer3" class="answer-input" placeholder="The car's name..." autocomplete="off">
+        <div id="error3" class="error-msg hidden">Not quite... a classic, short German man's name.</div>
         <button class="btn-quest" onclick="checkAnswer(3)">Unlock Next Clue</button>
         <br>
         <button id="hintBtn3" class="btn-hint hidden" onclick="showHint(3)">Need a hint?</button>
         <div id="hint3" class="hint hidden">
-          <span class="hint-icon">&#9733;</span> A strong, simple German name that starts with K...
+          <span class="hint-icon">&#9733;</span> Four letters. Starts with K. Think of a famous emperor with the same name.
         </div>
         <button id="revealBtn3" class="btn-reveal hidden" onclick="revealAnswer(3)">I'm really stuck &mdash; show me the answer</button>
       </div>
@@ -151,107 +143,103 @@
   <section id="stage4" class="stage">
     <div class="stage-inner">
       <div class="stage-number">IV</div>
-      <h2 class="stage-title">The Dreamer's Farewell</h2>
+      <h2 class="stage-title">The Last Romantic</h2>
       <div class="divider"></div>
       <div class="book-quote">
         <span class="quote-mark">&ldquo;</span>
-        Love life &mdash; even when it gives you nothing but sorrow. Because life itself is the only real treasure.
+        Love life &mdash; even when it gives you nothing but sorrow.
+        Because life itself is the only real treasure.
         <span class="quote-mark">&rdquo;</span>
         <div class="quote-author">&mdash; Erich Maria Remarque, <em>Three Comrades</em></div>
       </div>
       <p class="clue-text">
-        Of the three comrades, one was the <strong>eternal romantic</strong> &mdash;
-        the dreamer, the philosopher, the one who saw beauty where others saw ruin.<br><br>
-        He believed in grand gestures, in the power of words, in living fully and recklessly.
-        He was the first to toast to love, the first to defend a friend,
-        and the one whose absence left the deepest silence.<br><br>
-        His death was a turning point in the story &mdash; a moment that reminded Robert
-        how fragile everything is, and how fiercely we must hold on to those we love.<br><br>
-        <em>What was the first name of this dreamer, the most romantic of the three comrades?</em>
+        Robert. Otto. And a third.<br><br>
+        The dreamer. The poet of the group. The one who told Robert to send
+        Pat roses after their disastrous first date. The one who believed in beauty
+        when the world offered none.<br><br>
+        His death shattered what remained of their brotherhood
+        and left a silence that could never be filled.<br><br>
+        <em>What was his first name?</em>
       </p>
       <div class="answer-box">
-        <input type="text" id="answer4" class="answer-input" placeholder="Enter his first name..." autocomplete="off">
-        <div id="error4" class="error-msg hidden">Not Robert, not Otto... the third comrade, the poetic soul.</div>
+        <input type="text" id="answer4" class="answer-input" placeholder="His first name..." autocomplete="off">
+        <div id="error4" class="error-msg hidden">Not quite... his surname was Lenz.</div>
         <button class="btn-quest" onclick="checkAnswer(4)">Unlock Next Clue</button>
         <br>
         <button id="hintBtn4" class="btn-hint hidden" onclick="showHint(4)">Need a hint?</button>
         <div id="hint4" class="hint hidden">
-          <span class="hint-icon">&#9733;</span> His surname was Lenz. His first name means "God's peace" in German...
+          <span class="hint-icon">&#9733;</span> His name means "God's peace" in German. Starts with G.
         </div>
         <button id="revealBtn4" class="btn-reveal hidden" onclick="revealAnswer(4)">I'm really stuck &mdash; show me the answer</button>
       </div>
     </div>
   </section>
 
-  <!-- STAGE 5: The Little Prince — The Fox -->
+  <!-- STAGE 5: Little Prince — The Fox -->
   <section id="stage5" class="stage">
     <div class="stage-inner">
       <div class="stage-number">V</div>
-      <h2 class="stage-title">The Art of Taming</h2>
+      <h2 class="stage-title">The Secret</h2>
       <div class="divider"></div>
       <div class="book-quote">
         <span class="quote-mark">&ldquo;</span>
-        You become responsible, forever, for what you have tamed.
+        What is essential is invisible to the eye.
         <span class="quote-mark">&rdquo;</span>
         <div class="quote-author">&mdash; Antoine de Saint-Exup&eacute;ry, <em>The Little Prince</em></div>
       </div>
       <p class="clue-text">
-        Now we turn the page to another story of love &mdash; told through the eyes of a child from the stars.<br><br>
-        In his journey across the planets, the Little Prince meets a wise creature
-        who teaches him the most important lesson of all:
-        <em>"To tame means to create bonds."</em><br><br>
-        This creature explains that before they are tamed, they are just one among thousands.
-        But once tamed, they become <strong>unique in all the world</strong> to each other.
-        The wheat fields will forever remind him of the Prince's golden hair.<br><br>
-        It is this creature who whispers the secret: <em>"What is essential is invisible to the eye &mdash; you can only see it with the heart."</em><br><br>
-        <em>What animal taught the Little Prince about love and belonging?</em>
+        Now we turn the page to a story told through the eyes of a child from the stars.<br><br>
+        On Earth, the Little Prince meets a creature who asks to be <em>tamed</em>.
+        This creature teaches him the most important lesson of his journey &mdash;
+        that bonds are what make someone unique in all the world,
+        and that <strong>you become responsible, forever, for what you have tamed.</strong><br><br>
+        After their farewell, wheat fields would forever remind this creature
+        of the Prince's golden hair.<br><br>
+        <em>Who taught the Little Prince this secret?</em>
       </p>
       <div class="answer-box">
-        <input type="text" id="answer5" class="answer-input" placeholder="Enter the animal..." autocomplete="off">
-        <div id="error5" class="error-msg hidden">Not quite... this clever, bushy-tailed creature is known for its cunning...</div>
+        <input type="text" id="answer5" class="answer-input" placeholder="Who was it?" autocomplete="off">
+        <div id="error5" class="error-msg hidden">Not quite... think about which character asks to be "tamed."</div>
         <button class="btn-quest" onclick="checkAnswer(5)">Unlock Next Clue</button>
         <br>
         <button id="hintBtn5" class="btn-hint hidden" onclick="showHint(5)">Need a hint?</button>
         <div id="hint5" class="hint hidden">
-          <span class="hint-icon">&#9733;</span> A small, clever animal often seen in fables &mdash; it rhymes with "box"...
+          <span class="hint-icon">&#9733;</span> A wild animal. Clever and quick. Three letters.
         </div>
         <button id="revealBtn5" class="btn-reveal hidden" onclick="revealAnswer(5)">I'm really stuck &mdash; show me the answer</button>
       </div>
     </div>
   </section>
 
-  <!-- STAGE 6: The Little Prince — The Rose -->
+  <!-- STAGE 6: Little Prince — The Rose -->
   <section id="stage6" class="stage">
     <div class="stage-inner">
       <div class="stage-number">VI</div>
-      <h2 class="stage-title">The One Among Thousands</h2>
+      <h2 class="stage-title">Unique in All the World</h2>
       <div class="divider"></div>
       <div class="book-quote">
         <span class="quote-mark">&ldquo;</span>
-        It is the time you have wasted for your rose that makes your rose so important.
+        It is the time you have wasted for her that makes her so important.
         <span class="quote-mark">&rdquo;</span>
         <div class="quote-author">&mdash; Antoine de Saint-Exup&eacute;ry, <em>The Little Prince</em></div>
       </div>
       <p class="clue-text">
-        On his tiny planet, the Little Prince devoted himself to one single,
-        beautiful, and rather vain companion.<br><br>
-        She had <strong>four thorns</strong> she believed would protect her from the world.
-        She coughed dramatically to make him feel guilty. She was proud, difficult,
-        and sometimes exhausting.<br><br>
-        And yet &mdash; he loved her. He watered her, shielded her from the wind,
-        and crossed the entire universe only to understand that
-        <strong>she was unique among all others of her kind</strong>,
-        simply because she was <em>his</em>.<br><br>
-        <em>What was the Little Prince's beloved companion on his planet?</em>
+        On his tiny planet, the Little Prince devoted himself to a single,
+        vain, beautiful companion. She claimed to be the only one of her kind
+        in the entire universe.<br><br>
+        On Earth, he discovered thousands just like her &mdash; and wept.
+        But the lesson he learned was that <em>his</em> was unique, not because
+        of what she was, but because of the time and love he had given her.<br><br>
+        <em>What was she?</em>
       </p>
       <div class="answer-box">
-        <input type="text" id="answer6" class="answer-input" placeholder="What did he love?" autocomplete="off">
-        <div id="error6" class="error-msg hidden">Not quite... think of something beautiful, with thorns, that grows from the ground...</div>
+        <input type="text" id="answer6" class="answer-input" placeholder="What was she?" autocomplete="off">
+        <div id="error6" class="error-msg hidden">Not quite... he found a garden full of thousands of them on Earth.</div>
         <button class="btn-quest" onclick="checkAnswer(6)">Unlock Next Clue</button>
         <br>
         <button id="hintBtn6" class="btn-hint hidden" onclick="showHint(6)">Need a hint?</button>
         <div id="hint6" class="hint hidden">
-          <span class="hint-icon">&#9733;</span> Beautiful, fragrant, with thorns &mdash; the classic symbol of love...
+          <span class="hint-icon">&#9733;</span> She had four thorns she was very proud of.
         </div>
         <button id="revealBtn6" class="btn-reveal hidden" onclick="revealAnswer(6)">I'm really stuck &mdash; show me the answer</button>
       </div>
@@ -265,25 +253,23 @@
       <h2 class="stage-title">The Emperor's City</h2>
       <div class="divider"></div>
       <p class="clue-text">
-        Now our quest leaves the world of books and enters the world of <strong>ancient history</strong>.<br><br>
-        There exists a city that has witnessed two thousand years of love, faith, and wisdom
-        unfold along the shores of a great water.<br><br>
-        This city was founded around <strong>20 CE</strong> by <strong>Herod Antipas</strong>,
-        who named it in honor of the Roman Emperor who ruled the known world.<br><br>
-        It became one of the <strong>four holy cities</strong> of the Jewish people.
-        Within its walls, the great scholars composed the <em>Jerusalem Talmud</em>,
-        shaping the wisdom of generations.<br><br>
-        The great philosopher and physician <strong>Maimonides</strong> chose this city as his eternal resting place.<br><br>
-        <em>What is this ancient and holy city?</em>
+        Now our quest leaves the world of books and enters <strong>ancient history</strong>.<br><br>
+        One of Judaism's four holy cities sits on the western shore of Israel's
+        largest freshwater lake. Founded around 20 CE, it was named after
+        the Roman emperor of its era.<br><br>
+        The Jerusalem Talmud was composed within its walls.
+        Maimonides was laid to rest in its soil.<br><br>
+        To this day, it remains a place where ancient history meets the water's edge.<br><br>
+        <em>What is this city?</em>
       </p>
       <div class="answer-box">
         <input type="text" id="answer7" class="answer-input" placeholder="Name the city..." autocomplete="off">
-        <div id="error7" class="error-msg hidden">Not quite... the Emperor's name was Tiberius. The city bears his name.</div>
+        <div id="error7" class="error-msg hidden">Not quite... think: which Roman emperor ruled at the start of the Common Era?</div>
         <button class="btn-quest" onclick="checkAnswer(7)">Unlock Next Clue</button>
         <br>
         <button id="hintBtn7" class="btn-hint hidden" onclick="showHint(7)">Need a hint?</button>
         <div id="hint7" class="hint hidden">
-          <span class="hint-icon">&#9733;</span> The Emperor's name was Tiberius... and the city still carries his legacy.
+          <span class="hint-icon">&#9733;</span> The emperor was the successor of Augustus. His name starts with T.
         </div>
         <button id="revealBtn7" class="btn-reveal hidden" onclick="revealAnswer(7)">I'm really stuck &mdash; show me the answer</button>
       </div>
@@ -294,27 +280,26 @@
   <section id="stage8" class="stage">
     <div class="stage-inner">
       <div class="stage-number">VIII</div>
-      <h2 class="stage-title">The Harp-Shaped Sea</h2>
+      <h2 class="stage-title">The Sweetwater Sea</h2>
       <div class="divider"></div>
       <p class="clue-text">
-        Wonderful! You've found the city. But every great love story needs a setting by the water.<br><br>
-        This city sits along the western shore of Israel's most beloved lake &mdash;
-        a body of water that has nourished civilizations for millennia.<br><br>
-        The ancients named it for its shape, which resembles a <strong>harp</strong>
-        (<em>kinnor</em> in Hebrew). Its waters are sweet, its sunsets legendary,
-        and its stories infinite.<br><br>
-        Jesus walked upon its waves. Fishermen have cast their nets here since before the time of kings.<br><br>
-        At <strong>209 meters below sea level</strong>, it is the lowest freshwater lake on Earth.<br><br>
-        <em>What is the Hebrew name of this legendary sea?</em>
+        You've found the city. Now find its sea.<br><br>
+        This lake is the lowest freshwater body on Earth.
+        It has been called by many names &mdash; the Sea of Galilee,
+        Lake Tiberias, and an ancient Hebrew name derived from
+        the shape the ancients saw in its waters: a musical instrument.<br><br>
+        Fishermen have cast nets here for millennia.
+        Its sunsets are legendary. Its water is sweet.<br><br>
+        <em>What is the Hebrew name of this sea?</em>
       </p>
       <div class="answer-box">
-        <input type="text" id="answer8" class="answer-input" placeholder="Name the sea..." autocomplete="off">
-        <div id="error8" class="error-msg hidden">Almost there... think about "kinnor" (harp) and add the place suffix...</div>
+        <input type="text" id="answer8" class="answer-input" placeholder="Its Hebrew name..." autocomplete="off">
+        <div id="error8" class="error-msg hidden">Not quite... the shape is a stringed instrument played by King David.</div>
         <button class="btn-quest" onclick="checkAnswer(8)">Unlock the Final Secret</button>
         <br>
         <button id="hintBtn8" class="btn-hint hidden" onclick="showHint(8)">Need a hint?</button>
         <div id="hint8" class="hint hidden">
-          <span class="hint-icon">&#9733;</span> Named after the Hebrew word for "harp" &mdash; <em>kinnor</em>...
+          <span class="hint-icon">&#9733;</span> The instrument is a <em>kinnor</em> (harp). The lake's name comes from that word.
         </div>
         <button id="revealBtn8" class="btn-reveal hidden" onclick="revealAnswer(8)">I'm really stuck &mdash; show me the answer</button>
       </div>
@@ -382,9 +367,7 @@
     </div>
   </section>
 
-  <!-- Confetti canvas -->
   <canvas id="confetti-canvas"></canvas>
-
-  <script src="js/app.js?v=5"></script>
+  <script src="js/app.js?v=6"></script>
 </body>
 </html>
