@@ -48,8 +48,8 @@
 
 // ---------- Quest Logic ----------
 
-var TOTAL_STAGES = 13;
-var REVEAL_STAGE = TOTAL_STAGES + 1; // stage14
+var TOTAL_STAGES = 14;
+var REVEAL_STAGE = TOTAL_STAGES + 1; // stage15
 
 var ANSWERS = {
   1: ['pat', 'patricia', 'patrice'],
@@ -62,9 +62,10 @@ var ANSWERS = {
   8: ['ephemeral', 'efemeral', 'éphémère'],
   9: ['leon werth', 'léon werth', 'werth', 'leon vert', 'לאון ורת'],
   10: ['tiberias', 'tverya', 'tveria', 'tiberius', 'טבריה', 'טבריא'],
-  11: ['hamat', 'hammat', 'hamat tiberias', 'hammat tiberias', 'hammath', 'חמת', 'חמת טבריה'],
-  12: ['rambam', 'רמבם', 'maimonides'],
-  13: ['kinneret', 'kineret', 'כינרת', 'כנרת', 'sea of galilee', 'galilee']
+  11: ['vipsania', 'vipsania agrippina', 'agrippina'],
+  12: ['hamat', 'hammat', 'hamat tiberias', 'hammat tiberias', 'hammath', 'חמת', 'חמת טבריה'],
+  13: ['rambam', 'רמבם', 'maimonides'],
+  14: ['kinneret', 'kineret', 'כינרת', 'כנרת', 'sea of galilee', 'galilee']
 };
 
 var DISPLAY_ANSWERS = {
@@ -78,9 +79,10 @@ var DISPLAY_ANSWERS = {
   8: 'Ephemeral',
   9: 'Léon Werth',
   10: 'Tiberias',
-  11: 'Hamat Tiberias',
-  12: 'Rambam',
-  13: 'Kinneret'
+  11: 'Vipsania',
+  12: 'Hamat Tiberias',
+  13: 'Rambam',
+  14: 'Kinneret'
 };
 
 var attemptCounts = {};

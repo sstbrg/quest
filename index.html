@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=9">
+  <link rel="stylesheet" href="css/styles.css?v=10">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x2728;</text></svg>">
 </head>
 <body>
@@ -396,10 +396,43 @@
     </div>
   </section>
 
-  <!-- STAGE 11: The Healing Springs -->
+  <!-- STAGE 11: Tiberius and Vipsania -->
   <section id="stage11" class="stage">
     <div class="stage-inner">
       <div class="stage-number">XI</div>
+      <h2 class="stage-title">The Emperor's Tears</h2>
+      <div class="divider"></div>
+      <p class="clue-text">
+        The emperor who gave this city its name carried a heartbreak
+        of his own &mdash; one worthy of Remarque.<br><br>
+        Tiberius was deeply in love with his first wife.
+        But Emperor Augustus, for political reasons,
+        <strong>forced him to divorce her</strong> and marry another.<br><br>
+        Years later, Tiberius caught sight of her in the streets of Rome.
+        He <strong>followed her through the crowd with tears streaming down his face</strong>,
+        unable to speak. After that, guards were posted to ensure
+        he would never see her again.<br><br>
+        A man who ruled the known world, powerless before love.<br><br>
+        <em>What was the first name of the woman Tiberius loved and lost?</em>
+      </p>
+      <div class="answer-box">
+        <input type="text" id="answer11" class="answer-input" placeholder="Her first name..." autocomplete="off">
+        <div id="error11" class="error-msg hidden">Not quite... she was the daughter of Marcus Vipsanius Agrippa.</div>
+        <button class="btn-quest" onclick="checkAnswer(11)">Unlock Next Clue</button>
+        <br>
+        <button id="hintBtn11" class="btn-hint hidden" onclick="showHint(11)">Need a hint?</button>
+        <div id="hint11" class="hint hidden">
+          <span class="hint-icon">&#9733;</span> Her name comes from her father's name &mdash; Vipsanius. She was called V________a.
+        </div>
+        <button id="revealBtn11" class="btn-reveal hidden" onclick="revealAnswer(11)">I'm really stuck &mdash; show me the answer</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE 12: The Healing Springs -->
+  <section id="stage12" class="stage">
+    <div class="stage-inner">
+      <div class="stage-number">XII</div>
       <h2 class="stage-title">The Healing Waters</h2>
       <div class="divider"></div>
       <p class="clue-text">
@@ -414,23 +447,23 @@
         <em>What is this ancient place of healing called?</em>
       </p>
       <div class="answer-box">
-        <input type="text" id="answer11" class="answer-input" placeholder="Name the site..." autocomplete="off">
-        <div id="error11" class="error-msg hidden">Not quite... it's the Hebrew word for "hot" combined with the city name.</div>
-        <button class="btn-quest" onclick="checkAnswer(11)">Unlock Next Clue</button>
+        <input type="text" id="answer12" class="answer-input" placeholder="Name the site..." autocomplete="off">
+        <div id="error12" class="error-msg hidden">Not quite... it's the Hebrew word for "hot" combined with the city name.</div>
+        <button class="btn-quest" onclick="checkAnswer(12)">Unlock Next Clue</button>
         <br>
-        <button id="hintBtn11" class="btn-hint hidden" onclick="showHint(11)">Need a hint?</button>
-        <div id="hint11" class="hint hidden">
+        <button id="hintBtn12" class="btn-hint hidden" onclick="showHint(12)">Need a hint?</button>
+        <div id="hint12" class="hint hidden">
           <span class="hint-icon">&#9733;</span> "Hammat" means "hot spring" in Hebrew. Combined with the city...
         </div>
-        <button id="revealBtn11" class="btn-reveal hidden" onclick="revealAnswer(11)">I'm really stuck &mdash; show me the answer</button>
+        <button id="revealBtn12" class="btn-reveal hidden" onclick="revealAnswer(12)">I'm really stuck &mdash; show me the answer</button>
       </div>
     </div>
   </section>
 
-  <!-- STAGE 12: The Rambam -->
-  <section id="stage12" class="stage">
+  <!-- STAGE 13: The Rambam -->
+  <section id="stage13" class="stage">
     <div class="stage-inner">
-      <div class="stage-number">XII</div>
+      <div class="stage-number">XIII</div>
       <h2 class="stage-title">The Great Eagle</h2>
       <div class="divider"></div>
       <p class="clue-text">
@@ -446,23 +479,23 @@
         <em>What is this acronym?</em>
       </p>
       <div class="answer-box">
-        <input type="text" id="answer12" class="answer-input" placeholder="The acronym..." autocomplete="off">
-        <div id="error12" class="error-msg hidden">Not quite... take the bold letters: R, M, b, M.</div>
-        <button class="btn-quest" onclick="checkAnswer(12)">Unlock Next Clue</button>
+        <input type="text" id="answer13" class="answer-input" placeholder="The acronym..." autocomplete="off">
+        <div id="error13" class="error-msg hidden">Not quite... take the bold letters: R, M, b, M.</div>
+        <button class="btn-quest" onclick="checkAnswer(13)">Unlock Next Clue</button>
         <br>
-        <button id="hintBtn12" class="btn-hint hidden" onclick="showHint(12)">Need a hint?</button>
-        <div id="hint12" class="hint hidden">
+        <button id="hintBtn13" class="btn-hint hidden" onclick="showHint(13)">Need a hint?</button>
+        <div id="hint13" class="hint hidden">
           <span class="hint-icon">&#9733;</span> R-M-B-M. Also known in English as Maimonides.
         </div>
-        <button id="revealBtn12" class="btn-reveal hidden" onclick="revealAnswer(12)">I'm really stuck &mdash; show me the answer</button>
+        <button id="revealBtn13" class="btn-reveal hidden" onclick="revealAnswer(13)">I'm really stuck &mdash; show me the answer</button>
       </div>
     </div>
   </section>
 
-  <!-- STAGE 13: Kinneret -->
-  <section id="stage13" class="stage">
+  <!-- STAGE 14: Kinneret -->
+  <section id="stage14" class="stage">
     <div class="stage-inner">
-      <div class="stage-number">XIII</div>
+      <div class="stage-number">XIV</div>
       <h2 class="stage-title">The Sweetwater Sea</h2>
       <div class="divider"></div>
       <p class="clue-text">
@@ -476,21 +509,21 @@
         <em>What is the Hebrew name of this sea?</em>
       </p>
       <div class="answer-box">
-        <input type="text" id="answer13" class="answer-input" placeholder="Its Hebrew name..." autocomplete="off">
-        <div id="error13" class="error-msg hidden">Not quite... the shape is a stringed instrument played by King David.</div>
-        <button class="btn-quest" onclick="checkAnswer(13)">Unlock the Final Secret</button>
+        <input type="text" id="answer14" class="answer-input" placeholder="Its Hebrew name..." autocomplete="off">
+        <div id="error14" class="error-msg hidden">Not quite... the shape is a stringed instrument played by King David.</div>
+        <button class="btn-quest" onclick="checkAnswer(14)">Unlock the Final Secret</button>
         <br>
-        <button id="hintBtn13" class="btn-hint hidden" onclick="showHint(13)">Need a hint?</button>
-        <div id="hint13" class="hint hidden">
+        <button id="hintBtn14" class="btn-hint hidden" onclick="showHint(14)">Need a hint?</button>
+        <div id="hint14" class="hint hidden">
           <span class="hint-icon">&#9733;</span> The instrument is a <em>kinnor</em> (harp). The lake's name comes from that word.
         </div>
-        <button id="revealBtn13" class="btn-reveal hidden" onclick="revealAnswer(13)">I'm really stuck &mdash; show me the answer</button>
+        <button id="revealBtn14" class="btn-reveal hidden" onclick="revealAnswer(14)">I'm really stuck &mdash; show me the answer</button>
       </div>
     </div>
   </section>
 
-  <!-- STAGE 14: The Reveal -->
-  <section id="stage14" class="stage">
+  <!-- STAGE 15: The Reveal -->
+  <section id="stage15" class="stage">
     <div class="stage-inner reveal-stage">
       <div class="reveal-icon">&#10024;</div>
       <h2 class="stage-title reveal-title">The Journey Awaits</h2>
@@ -551,6 +584,6 @@
   </section>
 
   <canvas id="confetti-canvas"></canvas>
-  <script src="js/app.js?v=9"></script>
+  <script src="js/app.js?v=10"></script>
 </body>
 </html>
