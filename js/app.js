@@ -52,7 +52,7 @@ const TOTAL_STAGES = 7;
 
 const ANSWERS = {
   1: ['pat', 'patricia', 'patrice'],
-  2: ['rose', 'roses', 'red roses', 'ורדים', 'ורד'],
+  2: ['lilac', 'lilacs', 'לילך', 'לילכים'],
   3: ['germany', 'deutschland', 'גרמניה'],
   4: ['fox', 'the fox', 'שועל', 'השועל'],
   5: ['b-612', 'b612', 'b 612', 'asteroid b-612'],
@@ -62,7 +62,7 @@ const ANSWERS = {
 
 const DISPLAY_ANSWERS = {
   1: 'Pat',
-  2: 'Roses',
+  2: 'Lilacs',
   3: 'Germany',
   4: 'Fox',
   5: 'B-612',
