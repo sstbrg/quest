@@ -53,7 +53,7 @@ var REVEAL_STAGE = TOTAL_STAGES + 1; // stage9
 
 var ANSWERS = {
   1: ['pat', 'patricia', 'patrice'],
-  2: ['lilac', 'lilacs', 'לילך', 'לילכים'],
+  2: ['rose', 'roses', 'red roses', 'ורד', 'ורדים', 'שושנה'],
   3: ['karl', 'carl'],
   4: ['gottfried', 'gotfried'],
   5: ['fox', 'the fox', 'שועל', 'השועל'],
@@ -64,7 +64,7 @@ var ANSWERS = {
 
 var DISPLAY_ANSWERS = {
   1: 'Pat',
-  2: 'Lilacs',
+  2: 'Roses',
   3: 'Karl',
   4: 'Gottfried',
   5: 'Fox',
