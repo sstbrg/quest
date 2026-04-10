@@ -54,8 +54,14 @@ const ANSWERS = {
   3: ['kinneret', 'kineret', 'כינרת', 'כנרת', 'sea of galilee', 'galilee']
 };
 
-let hintTimers = {};
 let attemptCounts = { 1: 0, 2: 0, 3: 0 };
+let hintShown = { 1: false, 2: false, 3: false };
+
+const DISPLAY_ANSWERS = {
+  1: 'Pat',
+  2: 'Tiberias',
+  3: 'Kinneret'
+};
 
 function startQuest() {
   transitionTo('stage1');
@@ -77,11 +83,9 @@ function transitionTo(stageId) {
       next.classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
-      // Start hint timer for clue stages
+      // Focus the input for clue stages
       const stageNum = parseInt(stageId.replace('stage', ''));
       if (stageNum >= 1 && stageNum <= 3) {
-        startHintTimer(stageNum);
-        // Focus the input
         setTimeout(() => {
           const input = document.getElementById('answer' + stageNum);
           if (input) input.focus();
@@ -96,12 +100,38 @@ function transitionTo(stageId) {
   }
 }
 
-function startHintTimer(stage) {
-  if (hintTimers[stage]) clearTimeout(hintTimers[stage]);
-  hintTimers[stage] = setTimeout(() => {
-    const hint = document.getElementById('hint' + stage);
-    if (hint) hint.classList.remove('hidden');
-  }, 45000); // Show hint after 45 seconds
+function showHint(stage) {
+  const hint = document.getElementById('hint' + stage);
+  const hintBtn = document.getElementById('hintBtn' + stage);
+  if (hint) hint.classList.remove('hidden');
+  if (hintBtn) hintBtn.classList.add('hidden');
+  hintShown[stage] = true;
+
+  // Show the "reveal answer" button after a short delay
+  setTimeout(() => {
+    const revealBtn = document.getElementById('revealBtn' + stage);
+    if (revealBtn) revealBtn.classList.remove('hidden');
+  }, 8000); // 8 seconds after hint is shown
+}
+
+function revealAnswer(stage) {
+  const input = document.getElementById('answer' + stage);
+  const revealBtn = document.getElementById('revealBtn' + stage);
+  if (revealBtn) revealBtn.classList.add('hidden');
+
+  // Type out the answer letter by letter
+  const answer = DISPLAY_ANSWERS[stage];
+  input.value = '';
+  let i = 0;
+  const typeInterval = setInterval(() => {
+    input.value += answer[i];
+    i++;
+    if (i >= answer.length) {
+      clearInterval(typeInterval);
+      // Auto-submit after typing completes
+      setTimeout(() => checkAnswer(stage), 500);
+    }
+  }, 120);
 }
 
 function checkAnswer(stage) {
@@ -122,7 +152,10 @@ function checkAnswer(stage) {
     input.disabled = true;
     const error = document.getElementById('error' + stage);
     if (error) error.classList.add('hidden');
-    if (hintTimers[stage]) clearTimeout(hintTimers[stage]);
+    const hintBtn = document.getElementById('hintBtn' + stage);
+    if (hintBtn) hintBtn.classList.add('hidden');
+    const revealBtn = document.getElementById('revealBtn' + stage);
+    if (revealBtn) revealBtn.classList.add('hidden');
 
     setTimeout(() => {
       transitionTo('stage' + (stage + 1));
@@ -135,12 +168,6 @@ function checkAnswer(stage) {
 
     const error = document.getElementById('error' + stage);
     if (error) error.classList.remove('hidden');
-
-    // Show hint after 2 wrong attempts
-    if (attemptCounts[stage] >= 2) {
-      const hint = document.getElementById('hint' + stage);
-      if (hint) hint.classList.remove('hidden');
-    }
 
     input.value = '';
     input.focus();

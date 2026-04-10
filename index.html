@@ -55,11 +55,14 @@
       </p>
       <div class="answer-box">
         <input type="text" id="answer1" class="answer-input" placeholder="Enter her name..." autocomplete="off">
-        <div id="hint1" class="hint hidden">
-          <span class="hint-icon">&#9733;</span> Hint: Her full name is Patricia, but Robert always called her by a shorter, sweeter name...
-        </div>
         <div id="error1" class="error-msg hidden">Not quite... think about the name Robert whispered to her</div>
         <button class="btn-quest" onclick="checkAnswer(1)">Unlock Next Clue</button>
+        <br>
+        <button id="hintBtn1" class="btn-hint" onclick="showHint(1)">Need a hint?</button>
+        <div id="hint1" class="hint hidden">
+          <span class="hint-icon">&#9733;</span> Her full name is Patricia, but Robert always called her by a shorter, sweeter name...
+        </div>
+        <button id="revealBtn1" class="btn-reveal hidden" onclick="revealAnswer(1)">I'm really stuck &mdash; show me the answer</button>
       </div>
     </div>
   </section>
@@ -83,11 +86,14 @@
       </p>
       <div class="answer-box">
         <input type="text" id="answer2" class="answer-input" placeholder="Name the city..." autocomplete="off">
-        <div id="hint2" class="hint hidden">
-          <span class="hint-icon">&#9733;</span> Hint: The Emperor's name was Tiberius... and the city still carries his legacy.
-        </div>
         <div id="error2" class="error-msg hidden">Not quite... the Emperor's name was Tiberius. The city bears his name.</div>
         <button class="btn-quest" onclick="checkAnswer(2)">Unlock Next Clue</button>
+        <br>
+        <button id="hintBtn2" class="btn-hint" onclick="showHint(2)">Need a hint?</button>
+        <div id="hint2" class="hint hidden">
+          <span class="hint-icon">&#9733;</span> The Emperor's name was Tiberius... and the city still carries his legacy.
+        </div>
+        <button id="revealBtn2" class="btn-reveal hidden" onclick="revealAnswer(2)">I'm really stuck &mdash; show me the answer</button>
       </div>
     </div>
   </section>
@@ -111,11 +117,14 @@
       </p>
       <div class="answer-box">
         <input type="text" id="answer3" class="answer-input" placeholder="Name the sea..." autocomplete="off">
-        <div id="hint3" class="hint hidden">
-          <span class="hint-icon">&#9733;</span> Hint: Named after the Hebrew word for "harp" &mdash; <em>kinnor</em>...
-        </div>
         <div id="error3" class="error-msg hidden">Almost there... think about "kinnor" (harp) and add the place suffix...</div>
         <button class="btn-quest" onclick="checkAnswer(3)">Unlock the Final Secret</button>
+        <br>
+        <button id="hintBtn3" class="btn-hint" onclick="showHint(3)">Need a hint?</button>
+        <div id="hint3" class="hint hidden">
+          <span class="hint-icon">&#9733;</span> Named after the Hebrew word for "harp" &mdash; <em>kinnor</em>...
+        </div>
+        <button id="revealBtn3" class="btn-reveal hidden" onclick="revealAnswer(3)">I'm really stuck &mdash; show me the answer</button>
       </div>
     </div>
   </section>
