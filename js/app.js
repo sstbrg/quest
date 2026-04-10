@@ -56,8 +56,8 @@ var ANSWERS = {
   2: ['lilac', 'lilacs', 'lilak', 'לילך', 'לילכים'],
   3: ['karl', 'carl'],
   4: ['gottfried', 'gotfried'],
-  5: ['fox', 'the fox', 'שועל', 'השועל'],
-  6: ['rose', 'a rose', 'his rose', 'the rose', 'ורד'],
+  5: ['boa', 'boa constrictor', 'snake', 'serpent', 'elephant', 'snake eating elephant', 'snake swallowed elephant', 'boa constrictor swallowing elephant', 'snake that ate an elephant', 'נחש', 'בואה'],
+  6: ['44', 'forty four', 'forty-four', 'fourty four', 'fourty-four', 'quarante-quatre'],
   7: ['tiberias', 'tverya', 'tveria', 'tiberius', 'טבריה', 'טבריא'],
   8: ['kinneret', 'kineret', 'כינרת', 'כנרת', 'sea of galilee', 'galilee']
 };
@@ -67,8 +67,8 @@ var DISPLAY_ANSWERS = {
   2: 'Lilacs',
   3: 'Karl',
   4: 'Gottfried',
-  5: 'Fox',
-  6: 'A rose',
+  5: 'A boa constrictor swallowing an elephant',
+  6: '44',
   7: 'Tiberias',
   8: 'Kinneret'
 };
